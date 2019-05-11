@@ -1,0 +1,14 @@
+{
+    "local": {
+        "awscloudformation": {
+            "AuthRoleName": "logbook-filler-local-20190511180036-authRole",
+            "UnauthRoleArn": "arn:aws:iam::007921886663:role/logbook-filler-local-20190511180036-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::007921886663:role/logbook-filler-local-20190511180036-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "logbook-filler-local-20190511180036-deployment",
+            "UnauthRoleName": "logbook-filler-local-20190511180036-unauthRole",
+            "StackName": "logbook-filler-local-20190511180036",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:007921886663:stack/logbook-filler-local-20190511180036/01b7e8a0-73dc-11e9-bea2-0a6ebb72ceae"
+        }
+    }
+}
