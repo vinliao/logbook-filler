@@ -25,6 +25,17 @@ Resources:
           Properties:
             Schedule: rate(24 hours)
 
+  CredentialsTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: logbook-table
+      PrimaryKey:
+        Name: id
+        Type: String
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM

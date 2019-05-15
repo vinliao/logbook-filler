@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'sam_backend
+
+  Sample SAM Template for sam_backend
+
+  '
+Globals:
+  Function:
+    Timeout: 10
+Outputs:
+  HelloWorldApi:
+    Description: whatever
+    Value: whatever
+Resources:
+  CredentialsTable:
+    Properties:
+      PrimaryKey:
+        Name: id
+        Type: String
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+      TableName: logbook-table
+    Type: AWS::Serverless::SimpleTable
+  LogbookFunction:
+    Properties:
+      CodeUri: s3://logbook-bucket/cb2fefe2282e602358f2f4a9e2292bb5
+      Events:
+        TriggerEvent:
+          Properties:
+            Schedule: rate(24 hours)
+          Type: Schedule
+      Handler: app.lambda_handler
+      Runtime: python3.7
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Signin from './Signin/Signin';
+import Amplify, { Storage } from 'aws-amplify';
+import awsmobile from './aws-exports';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+Amplify.configure(awsmobile);
+
+class App extends Component{
+
+  put_dynamodb = async () => {
+    //put some shit to dynamodb
+    console.log('putting shit on ddb');
+    const response = await API.post('dynamodbAPI', '/items', {
+      // body: {
+      //   id: '1',
+      //   name: text
+      // }
+      body: this.state
+    });
+  }
+
+  render(){
+    return (
+      <div className="App">
+        {/* todo: pass reference to the signin component
+        so that when I click signin, it runs put_dynamodb */}
+        <Signin />
+      </div>
+    );
+  }
 }
 
 export default App;
