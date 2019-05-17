@@ -24,7 +24,7 @@ Resources:
     Type: AWS::Serverless::SimpleTable
   LogbookFunction:
     Properties:
-      CodeUri: s3://logbook-bucket/cb2fefe2282e602358f2f4a9e2292bb5
+      CodeUri: s3://logbook-bucket/bf4507ddcb8fd856f079eecc2a7f2897
       Events:
         TriggerEvent:
           Properties:

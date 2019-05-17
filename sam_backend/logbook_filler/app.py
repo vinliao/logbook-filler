@@ -32,15 +32,15 @@ def lambda_handler(event, context):
         description = 'off'
     #if it's weekday
     else:
-        activity_detail_dict = logbook_data['activity']
-        activity_detail = random.choice(list(activity_detail_dict))
+        activity_dict = logbook_data['activity']
         
-        print(activity_detail)
         clock_in = '7'
         clock_out = '18'
-        activity = activity_detail
-        description = activity_detail_dict[activity_detail]
 
+        # at the end of the day
+        # these are just normal dictionary
+        activity = random.choice(list(activity_dict))
+        description = activity_dict[activity]
 
     br = mechanize.Browser()
     br.set_handle_robots(False)   # ignore robots
